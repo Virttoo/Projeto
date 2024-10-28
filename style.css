@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.2);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+  /*background: color/image repeat position/size - esse comando abaixo está juntando todos os de cima em um único. entre o position e o size, precisa da barra/ */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  /*utilizar o comando border: 1px solid red ; para ajudar na visualização do projeto */
+  width: 360px;
+  /* margin-left: auto;
+  margin-right: auto;
+  o comando abaixo executa esses dois acima, porém, não só a esquerda e direita, mas como cima e baixo também, mas existe uma regra padrão no css que não executa esse comando na parte de cima e baixo. para alterar especificamente cima e baixo, preciso colocar comandos para isso (margin-top e margin-bottom) ou eu faço conforme um relogio, sendo o top o horario 12h, right=3h, bottom = 6h e left=9h. com isso, consigo utilizar tudo dentro do margin, pegando o primeiro numero como top, o segundo como right, o terceiro como bottom e quarto como left, mas existe a opção de deixar as laterais como auto, que aí trabalho apenas com 3 números, sendo top, right/left e bottom, conforme fiz no projeto, ou o exemplo: margin: 56px auto 0px;.
+  */
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/* Profile */
+
+/*o #profile img engloba como se fosse "filho" do #profile, onde se eu criar um #profile, consigo definir algumas características principais que se aplicarão em todos os "filhos"  */
+#profile {
+  /* o text-align: center só é possível usar em elementos inline*/
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  /*para centralizar a imagem no site, eu preciso transformar o elento img em block, para aí sim conseguir utilizar o margin: auto, ou eu uso a configuração do #profile, informando que deve trabalhar a inline como text-align: center  */
+
+  /* display:block; */
+  /*margin: auto;*/
+  width: 112px;
+  /* css não precisa definir altura, geralmente segue o conteúdo da página, ou seja, se nao tiver conteúdo, a altura é zero, se tiver muito conteúdo, ela vai ajustando conforme a quantidade.*/
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* Switch */
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.2s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  border-radius: 50%;
+}
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
