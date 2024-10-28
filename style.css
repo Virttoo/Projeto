@@ -43,7 +43,8 @@ body * {
 
 #container {
   /*utilizar o comando border: 1px solid red ; para ajudar na visualização do projeto */
-  width: 360px;
+  width: 100%;
+  max-width: 580px;
   /* margin-left: auto;
   margin-right: auto;
   o comando abaixo executa esses dois acima, porém, não só a esquerda e direita, mas como cima e baixo também, mas existe uma regra padrão no css que não executa esse comando na parte de cima e baixo. para alterar especificamente cima e baixo, preciso colocar comandos para isso (margin-top e margin-bottom) ou eu faço conforme um relogio, sendo o top o horario 12h, right=3h, bottom = 6h e left=9h. com isso, consigo utilizar tudo dentro do margin, pegando o primeiro numero como top, o segundo como right, o terceiro como bottom e quarto como left, mas existe a opção de deixar as laterais como auto, que aí trabalho apenas com 3 números, sendo top, right/left e bottom, conforme fiz no projeto, ou o exemplo: margin: 56px auto 0px;.
